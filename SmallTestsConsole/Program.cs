@@ -10,7 +10,7 @@ namespace SmallTestsConsole
     {
         static void Main(string[] args)
         {
-            AzureInsights.SimulatedMain();
+            // ExampleClass.SimulatedMain();
 
 
 
