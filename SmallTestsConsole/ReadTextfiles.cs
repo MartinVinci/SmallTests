@@ -58,9 +58,9 @@ namespace SmallTestsConsole
 
 
         //Utility
-        private static string WriteLine(string text)
+        private static void WriteLine(string text)
         {
-            return text;
+            Console.WriteLine(text);
         }
 
     }
