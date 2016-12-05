@@ -13,6 +13,10 @@ namespace SmallTestsConsole
             AzureInsights.SimulatedMain();
 
 
+
+            Console.WriteLine("DONE of Program Main()");
         }
+
+
     }
 }
