@@ -11,7 +11,7 @@ namespace SmallTestsConsole
         static void Main(string[] args)
         {
             // ExampleClass.SimulatedMain();
-
+            VerySmallTests.SimulatedMain();
 
 
             Console.WriteLine("DONE of Program Main()");
