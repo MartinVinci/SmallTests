@@ -1,14 +1,19 @@
-﻿using System;
+﻿using SmallTestsWinForm.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace SmallTestsWinForm
 {
@@ -78,5 +83,100 @@ namespace SmallTestsWinForm
             label4.Text += "x";
 
         }
+
+        static HttpClient client;
+        private async void button5_Click(object sender, EventArgs e)
+        {
+            client = new HttpClient();
+            client.BaseAddress = new Uri("https://microsoft-apiapp9361797a53664fbfaff4ee3f582f2d9e.azurewebsites.net/");
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            string subPath;
+            //if (id == 0)
+            //{
+            subPath = "api/contact/";
+            //}
+            //else
+            //{
+            //    subPath = "//api/contact/" + id.ToString();
+            //}
+
+
+            //string path = client.BaseAddress + "//contact";
+
+            //string myPath = @"https://microsoft-apiapp9361797a53664fbfaff4ee3f582f2d9e.azurewebsites.net/api/contact";
+            string finalPath = client.BaseAddress + subPath;
+            HttpResponseMessage response = await client.GetAsync(finalPath);
+
+            List<Contact> contact;
+            if (response.IsSuccessStatusCode)
+            {
+                contact = await response.Content.ReadAsAsync<List<Contact>>();
+            }
+        }
+        private async void button6_Click(object sender, EventArgs e)
+        {
+            client = new HttpClient();
+
+            client.BaseAddress = new Uri("https://microsoft-apiapp9361797a53664fbfaff4ee3f582f2d9e.azurewebsites.net/");
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            string subPath;
+            //if (id == 0)
+            //{
+            //    subPath = "//api/contact/";
+            //}
+            //else
+            //{
+            subPath = "api/contact/" + textBox6.Text.ToString();
+            //}
+            //string path = client.BaseAddress + "//contact";
+
+            //string myPath = @"https://microsoft-apiapp9361797a53664fbfaff4ee3f582f2d9e.azurewebsites.net/api/contact";
+            string finalPath = client.BaseAddress + subPath;
+            HttpResponseMessage response = await client.GetAsync(finalPath);
+
+            List<Contact> contact;
+            if (response.IsSuccessStatusCode)
+            {
+                contact = await response.Content.ReadAsAsync<List<Contact>>();
+            }
+        }
+        //private async static bool CallApi()
+        //{
+        //    CallApi(0);
+
+        //    return true;
+        //}
+        //private async static void CallApi(int id)
+        //{
+        //    client.BaseAddress = new Uri("https://microsoft-apiapp9361797a53664fbfaff4ee3f582f2d9e.azurewebsites.net/");
+        //    client.DefaultRequestHeaders.Accept.Clear();
+        //    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+        //    string subPath;
+        //    if (id == 0)
+        //    {
+        //        subPath = "//api/contact/";
+        //    }
+        //    else
+        //    {
+        //        subPath = "//api/contact/" + id.ToString();
+        //    }
+        //    //string path = client.BaseAddress + "//contact";
+
+        //    //string myPath = @"https://microsoft-apiapp9361797a53664fbfaff4ee3f582f2d9e.azurewebsites.net/api/contact";
+        //    string finalPath = client.BaseAddress + subPath;
+        //    HttpResponseMessage response = await client.GetAsync(finalPath);
+
+        //    List<Contact> contact;
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        contact = await response.Content.ReadAsAsync<List<Contact>>();
+        //    }
+        //}
+
     }
 }
