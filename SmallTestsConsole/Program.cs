@@ -15,7 +15,7 @@ namespace SmallTestsConsole
             // ReadTextfiles.SimulatedMain();
             // UtilityService.SimulatedMain(); 
             // Arrays.SimulatedMain();
-            //EventViewer.SimulatedMain();
+            // EventViewer.SimulatedMain();
             BjornTretton.SimulatedMain();
 
             Console.WriteLine("DONE of Program Main()");
