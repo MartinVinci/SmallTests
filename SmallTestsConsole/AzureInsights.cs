@@ -25,7 +25,7 @@ namespace SmallTestsConsole
 
         private static void BasicExample()
         {
-            TelemetryConfiguration.Active.InstrumentationKey = "b11a12a9-9eda-4da0-9a8a-0ab111834d3c";
+            TelemetryConfiguration.Active.InstrumentationKey = "this is a guid";
             //while (true)
             //{
 

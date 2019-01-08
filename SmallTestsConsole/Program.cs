@@ -11,10 +11,15 @@ namespace SmallTestsConsole
         static void Main(string[] args)
         {
             // ExampleClass.SimulatedMain();
-            VerySmallTests.SimulatedMain();
-
+            // VerySmallTests.SimulatedMain();
+            // ReadTextfiles.SimulatedMain();
+            // UtilityService.SimulatedMain(); 
+            // Arrays.SimulatedMain();
+            //EventViewer.SimulatedMain();
+            BjornTretton.SimulatedMain();
 
             Console.WriteLine("DONE of Program Main()");
+            Console.ReadKey();
         }
 
 

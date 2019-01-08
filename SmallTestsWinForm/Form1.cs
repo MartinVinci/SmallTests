@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Formatting;
@@ -22,8 +23,14 @@ namespace SmallTestsWinForm
         public Form1()
         {
             InitializeComponent();
+            InitializeCustom();
         }
 
+        public void InitializeCustom()
+        {
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "dd MMMM yyyy";
+        }
         // Example 1
         private async void button1_Click(object sender, EventArgs e)
         {
@@ -47,6 +54,8 @@ namespace SmallTestsWinForm
 
         // Example 2        
         public delegate bool MyDelegateMethod();
+
+
 
 
         private void button3_Click(object sender, EventArgs e)
@@ -105,7 +114,58 @@ namespace SmallTestsWinForm
                 contact = await response.Content.ReadAsAsync<List<Contact>>();
             }
         }
-        
 
+        private void btnAltTab_Click(object sender, EventArgs e)
+        {
+
+            //SendKeys.Send("{% TAB}");
+
+            SendKeys.Send("%{TAB}"); //Alt+F
+        }
+
+        private void tbxAltTab_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                lblAltTab.Text = string.Format("Du skapade en textfil med namn: {0}", tbxAltTab.Text);
+
+                string path = string.Format(@"C:\filecreator\{0}.txt", tbxAltTab.Text);
+                using (var tw = new StreamWriter(path, true))
+                {
+                    //tw.WriteLine(tbxAltTab.Text);
+                    tw.Close();
+                }
+
+                SendKeys.Send("%{TAB}");
+
+                Thread.Sleep(3000);
+
+                SendKeys.Send("{A}");
+
+                Thread.Sleep(100);
+
+                SendKeys.Send("{ENTER}");
+
+                Thread.Sleep(2000);
+
+                WriteInTextFile("NuSkriverJagLiteTextSomSkaFinnasITextfilen");
+
+
+            }
+        }
+        private void WriteInTextFile(string text)
+        {
+            text = text.ToUpper();
+
+            foreach (var item in text)
+            {
+
+                Thread.Sleep(100);
+                SendKeys.Send("{" + item + "}");
+            }
+
+            Thread.Sleep(500);
+
+        }
     }
 }

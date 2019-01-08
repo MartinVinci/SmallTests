@@ -38,6 +38,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnAltTab = new System.Windows.Forms.Button();
+            this.tbxAltTab = new System.Windows.Forms.TextBox();
+            this.lblAltTab = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label4
@@ -135,11 +139,49 @@
             this.label5.TabIndex = 8;
             this.label5.Text = ":";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(442, 13);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 11;
+            // 
+            // btnAltTab
+            // 
+            this.btnAltTab.Location = new System.Drawing.Point(13, 228);
+            this.btnAltTab.Name = "btnAltTab";
+            this.btnAltTab.Size = new System.Drawing.Size(75, 23);
+            this.btnAltTab.TabIndex = 12;
+            this.btnAltTab.Text = "Alt Tab";
+            this.btnAltTab.UseVisualStyleBackColor = true;
+            this.btnAltTab.Click += new System.EventHandler(this.btnAltTab_Click);
+            // 
+            // tbxAltTab
+            // 
+            this.tbxAltTab.Location = new System.Drawing.Point(13, 202);
+            this.tbxAltTab.Name = "tbxAltTab";
+            this.tbxAltTab.Size = new System.Drawing.Size(100, 20);
+            this.tbxAltTab.TabIndex = 13;
+            this.tbxAltTab.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxAltTab_KeyDown);
+            // 
+            // lblAltTab
+            // 
+            this.lblAltTab.AutoSize = true;
+            this.lblAltTab.Location = new System.Drawing.Point(120, 202);
+            this.lblAltTab.Name = "lblAltTab";
+            this.lblAltTab.Size = new System.Drawing.Size(35, 13);
+            this.lblAltTab.TabIndex = 14;
+            this.lblAltTab.Text = "label6";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(855, 405);
+            this.Controls.Add(this.lblAltTab);
+            this.Controls.Add(this.tbxAltTab);
+            this.Controls.Add(this.btnAltTab);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -169,6 +211,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btnAltTab;
+        private System.Windows.Forms.TextBox tbxAltTab;
+        private System.Windows.Forms.Label lblAltTab;
     }
 }
 
