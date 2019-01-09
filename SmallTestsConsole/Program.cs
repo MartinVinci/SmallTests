@@ -10,7 +10,6 @@ namespace SmallTestsConsole
     {
         static void Main(string[] args)
         {
-            // ExampleClass.SimulatedMain();
             // VerySmallTests.SimulatedMain();
             // ReadTextfiles.SimulatedMain();
             // UtilityService.SimulatedMain(); 
